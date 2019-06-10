@@ -34,12 +34,13 @@ var Stations = {
     23: new Station(23, 'Полигон Алабино'),
     24: new Station(24, 'Парковка сектор J'),
     25: new Station(25, 'Парковка сектор E'),
+    100: new Station(100, 'Патриот Экспо'),
 };
 
 var Assets = {
     '0': [Stations[0]],
-    '1': [Stations[0], Stations[7], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[23]],
-    '2': [Stations[0], Stations[7], Stations[8], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[23]],
+    '1': [Stations[0], Stations[100], Stations[7], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[23]],
+    '2': [Stations[0], Stations[100], Stations[7], Stations[8], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[23]],
     '3': [Stations[0], Stations[6], Stations[7], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[23]],
     '4': [Stations[0], Stations[6], Stations[7], Stations[8], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[23]],
     '5': [Stations[0], Stations[7], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[23]],
@@ -86,10 +87,10 @@ var Route = {
     20: {6: 237, 7: 238, 9: 239, 10: 240, 11: 241, 12: 242, 13: 243, 14: 244, 15: 245, 16: 246, 17: 247, 23: 248},
     21: {6: 249, 7: 250, 9: 251, 10: 252, 11: 253, 12: 254, 13: 255, 14: 256, 15: 257, 16: 258, 17: 259, 23: 260},
     22: {6: 261, 7: 262, 9: 263, 10: 264, 11: 265, 12: 266, 13: 267, 14: 268, 15: 269, 16: 270, 17: 271, 23: 272},
-    23: {1: 271, 2: 274, 3: 275, 4: 276, 5: 277, 6: 278, 7: 279, 8: 280, 9: 281, 10: 282, 11: 283, 12: 284, 13: 285, 14: 286, 18: 287, 24: 288, 25: 289}
+    23: {1: 271, 2: 274, 3: 275, 4: 276, 5: 277, 6: 278, 7: 279, 8: 280, 9: 281, 10: 282, 11: 283, 12: 284, 13: 285, 14: 286, 18: 287, 24: 288, 25: 289},
 };
 
-function loadFromLost()
+function loadFromList()
 {
     var list = [Stations[1], Stations[2], Stations[3], Stations[4], Stations[5], Stations[6], Stations[7], Stations[8], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[17], Stations[18], Stations[19], Stations[20], Stations[11], Stations[22], Stations[23]];
     for(var i = 0; i < list.length; i++)
@@ -103,9 +104,11 @@ function scrollToRoute()
     $('html,body').animate({ scrollTop: $("#l-route").offset().top }, 1100);
     return false;
 }
-$(document).ready(function () {
+
+document.addEventListener('DOMContentLoaded', function () {
+    $('select').selectpicker();
     $("#l-route").css('display', 'none');
-    loadFromLost();
+    loadFromList();
     $("#form_from").on('change', function () {
         Select.station(this.value);
         $("select").selectpicker('refresh');
@@ -114,9 +117,6 @@ $(document).ready(function () {
         Select.station(this.value);
         $("select").selectpicker('refresh');
     });
-});
-document.addEventListener('DOMContentLoaded', function () {
-    $('select').selectpicker();
     var svg = document.querySelector("#scheme");
     svg.addEventListener("load",function(){
         var svgDoc = svg.contentDocument;
@@ -126,13 +126,14 @@ document.addEventListener('DOMContentLoaded', function () {
             var id= this.id.split('_');
             id = id[1];
             Select.station(id);
+            $("select").selectpicker('refresh');
         });
         $(svgDoc).click(function () {
             if (Select.need_reset === true) {
                 resetRoute();
                 Select.need_reset = false;
+                $("select").selectpicker('refresh');
             }
-            $("select").selectpicker('refresh');
         });
     }, false);
 }, false);
@@ -165,7 +166,7 @@ function resetRoute()
     $("#form_to").val('0').selectpicker('refresh');
 }
 
-function completeTo(val) {
+function loadToList(val) {
     $("#form_to > option").remove();
     var s = Assets[val];
     for(var i = 0; i < s.length; i++)
@@ -183,20 +184,33 @@ var Select = {
     from: 0,
     to: 0,
     need_reset: false,
-    station: function (id) {
+    station: function (stationID) {
         if (this.mode.from === true) {
             if (this.need_reset === true) return;
-            $("#form_from").val(id);
-            this.from = id;
-            completeTo(id);
+            $("#form_from").val(stationID);
+            this.from = stationID;
+            loadToList(stationID);
             this.mode.from = false;
             this.mode.to = true;
-            $("#scheme").attr('data', 'media/scheme/station_' + id + '.svg');
+            $("#scheme").attr('data', 'media/scheme/station_' + stationID + '.svg');
         }
         else {
             if (this.need_reset === true) return;
-            $("#form_to").val(id);
-            this.to = id;
+            $("#form_to").val(stationID);
+            this.to = stationID;
+            if (parseInt(stationID) === 100) {
+                switch (parseInt(this.from)) {
+                    case 1:
+                    case 3:
+                    case 5:
+                        this.to = 15;
+                        break;
+                    case 2:
+                    case 4:
+                        this.to = 8;
+                        break;
+                }
+            }
             this.mode.from = true;
             this.mode.to = false;
             showRoute(this.from, this.to);
