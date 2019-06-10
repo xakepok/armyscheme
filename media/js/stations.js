@@ -37,7 +37,7 @@ var Stations = {
 };
 
 var Assets = {
-    '': [Stations[0]],
+    '0': [Stations[0]],
     '1': [Stations[0], Stations[7], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[23]],
     '2': [Stations[0], Stations[7], Stations[8], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[23]],
     '3': [Stations[0], Stations[6], Stations[7], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[23]],
@@ -91,15 +91,8 @@ function loadFromLost()
 
 function scrollToRoute()
 {
-    var curPos=$(document).scrollTop();
-    var height=$("body").height();
-    var scrollTime=(height-curPos)/2;
-    $("body,html").animate({"scrollTop":height},scrollTime);
-}
-
-function getSVG()
-{
-
+    $('html,body').animate({ scrollTop: $("#l-route").offset().top }, 1100);
+    return false;
 }
 $(document).ready(function () {
     $("#l-route").css('display', 'none');
@@ -111,7 +104,6 @@ $(document).ready(function () {
     $("#form_to").on('change', function () {
         Select.station(this.value);
         $("select").selectpicker('refresh');
-        //showRoute($("#form_from").val(), this.value);
     });
 });
 document.addEventListener('DOMContentLoaded', function () {
@@ -126,35 +118,41 @@ document.addEventListener('DOMContentLoaded', function () {
             Select.station(id);
         });
         $(svgDoc).click(function () {
-            $("select").selectpicker('refresh');
             if (Select.need_reset === true) {
                 resetRoute();
                 Select.need_reset = false;
             }
+            $("select").selectpicker('refresh');
         });
     }, false);
 }, false);
 
 function showRoute(from, to) {
     var id = Route[from][to];
+    var l_scheme = $("#l-scheme");
+    var l_route = $("#l-route");
+    l_scheme.animate({width: 'toggle'}, "fast");
+    l_route.hide();
     if (id == null) return;
     try {
         $("#route").attr('data', 'media/scheme/route_' + id + '.svg');
         $("#scheme").attr('data', 'media/scheme/scheme_' + id + '.svg');
-        $("#l-route").show();
+        l_scheme.animate({width: 'toggle'}, "fast");
+        l_route.show(function () {
+            scrollToRoute();
+        });
     }
     catch (e) {
         console.error("Файл ещё не прорисован");
     }
-    scrollToRoute();
 }
 
 function resetRoute()
 {
-    $("#route").hide();
+    $("#l-route").hide();
     $("#scheme").attr('data', 'media/scheme/scheme.svg');
-    $("#form_from").val('');
-    $("#form_to").val('');
+    $("#form_from").val('0');
+    $("#form_to").val('0');
     $("select").selectpicker('refresh');
 }
 
@@ -165,6 +163,8 @@ function completeTo(val) {
     {
         document.querySelector("#form_to").appendChild(s[i]);
     }
+    $("#form_to").val('0');
+    $("select").selectpicker('refresh');
 }
 
 var Select = {
@@ -196,6 +196,6 @@ var Select = {
         }
     },
     setReset: function () {
-        this.need_reset = true
+        this.need_reset = true;
     }
 };
