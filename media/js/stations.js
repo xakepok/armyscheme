@@ -107,7 +107,6 @@ function scrollToRoute()
 
 document.addEventListener('DOMContentLoaded', function () {
     $('select').selectpicker();
-    $("#l-route").css('display', 'none');
     loadFromList();
     $("#form_from").on('change', function () {
         Select.station(this.value);
@@ -136,12 +135,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }, false);
+    $("#link-reset").click(function () {
+        if (Select.need_reset === true) {
+            resetRoute();
+            Select.need_reset = false;
+            $("select").selectpicker('refresh');
+        }
+    });
 }, false);
 
 function showRoute(from, to) {
     var id = Route[from][to];
     var l_scheme = $("#l-scheme");
     var l_route = $("#l-route");
+    var l_form = $("#l-form");
+    l_form.slideUp();
     l_scheme.animate({width: 'toggle'}, "fast");
     l_route.hide();
     if (id == null) return;
@@ -149,9 +157,7 @@ function showRoute(from, to) {
         $("#route").attr('data', 'media/scheme/route_' + id + '.svg');
         $("#scheme").attr('data', 'media/scheme/scheme_' + id + '.svg');
         l_scheme.animate({width: 'toggle'}, "fast");
-        l_route.show(function () {
-            scrollToRoute();
-        });
+        l_route.slideDown();
     }
     catch (e) {
         console.error("Файл ещё не прорисован");
@@ -160,7 +166,8 @@ function showRoute(from, to) {
 
 function resetRoute()
 {
-    $("#l-route").hide();
+    $("#l-route").slideUp();
+    $("#l-form").slideDown();
     $("#scheme").attr('data', 'media/scheme/scheme.svg');
     $("#form_from").val('0').selectpicker('refresh');
     $("#form_to").val('0').selectpicker('refresh');
