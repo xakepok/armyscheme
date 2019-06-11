@@ -3,6 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta
+            name='viewport'
+            content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
+    />
     <link rel="stylesheet" href="media/css/bootstrap.min.css">
     <link rel="stylesheet" href="media/css/bootstrap-select.min.css">
     <link rel="icon" href="media/images/favicon.png" type="image/x-icon"/>
@@ -27,9 +31,9 @@
         </div>
     </div>
     <div id="l-route" style="display: none;">
-        <div class="text-center" style="width: 95%">
+        <div class="text-center" style="width: 95%; overflow: scroll;">
             <h4>Подробный маршрут</h4>
-            <object type="image/svg+xml" id="route" width="100%">Маршрут ещё не прорисован</object>
+            <object type="image/svg+xml" id="route">Маршрут ещё не прорисован</object>
         </div>
         <a href="#" id="link-reset">
             <div class="alert alert-primary text-center" role="alert">
@@ -37,7 +41,7 @@
             </div>
         </a>
     </div>
-    <div class="w-100" id="l-scheme">
+    <div class="w-100 h-100" id="l-scheme">
         <object type="image/svg+xml" id="scheme" data="media/scheme/scheme.svg">Не удаётся загрузить схему</object>
     </div>
 </div>

@@ -100,12 +100,6 @@ function loadFromList()
     }
 }
 
-function scrollToRoute()
-{
-    $('html,body').animate({ scrollTop: $("#l-route").offset().top }, 1100);
-    return false;
-}
-
 document.addEventListener('DOMContentLoaded', function () {
     $('select').selectpicker();
     loadFromList();
@@ -127,10 +121,10 @@ document.addEventListener('DOMContentLoaded', function () {
             id = id[1];
             Select.station(id);
             $("select").selectpicker('refresh');
+            setScale();
         });
         $(svgDoc).click(function () {
             if (Select.need_reset === true) {
-                resetRoute();
                 Select.need_reset = false;
                 $("select").selectpicker('refresh');
             }
@@ -144,6 +138,14 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 }, false);
+
+function setScale()
+{
+    var svg = document.querySelector("#scheme");
+    var svgDoc = svg.contentDocument;
+    var q = svgDoc.querySelector('svg');
+    q.currentScale = 1;
+}
 
 function showRoute(from, to) {
     var id = Route[from][to];
