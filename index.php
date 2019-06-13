@@ -31,7 +31,7 @@
         </div>
     </div>
     <div id="l-route" style="display: none;">
-        <div class="text-center" style="width: 95%; overflow: scroll;">
+        <div class="text-center">
             <h4>Подробный маршрут</h4>
             <object type="image/svg+xml" id="route">Маршрут ещё не прорисован</object>
         </div>
