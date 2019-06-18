@@ -46,7 +46,7 @@
     </div>
 </div>
 <script src="media/js/jquery-3.4.1.min.js"></script>
-<script src="media/js/stations.js"></script>
+<script src="media/js/stations.js?v1"></script>
 <script src="media/js/popper.min.js"></script>
 <script src="media/js/bootstrap.min.js"></script>
 <script src="media/js/bootstrap-select.min.js"></script>
