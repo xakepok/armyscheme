@@ -91,6 +91,15 @@ var Route = {
     23: {1: 278, 2: 279, 3: 280, 4: 281, 5: 282, 6: 283, 7: 284, 8: 285, 9: 286, 10: 287, 11: 288, 12: 289, 13: 290, 14: 291, 18: 292, 24: 293, 25: 294},
 };
 
+var Route2 = {
+    1: {
+        7: ['st_1', 'rt_1-3', 'st_3', 'st_3-4', 'rt_4_3-16', 'rt_4_16-15', 'st_15-4'],
+        9: ['st_1', 'rt_1-3', 'st_3', 'st_3-4', 'rt_4_3-16', 'st_16-4', 'st_16-1', 'rt_1_16-15', 'rt_1_15-19', 'rt_1_19-25', 'rt_1_25-24', 'rt_1_24-20', 'rt_1_20-21', 'rt_1_21-22', 'rt_1_22-23', 'rt_1_23-9', 'st_9-1'],
+        10: ['st_1', 'rt_1-3', 'st_3', 'rt_3-16', 'st_16', 'rt_16-10', 'st_10'],
+        11: ['st_1', 'rt_1-3', 'st_3', 'rt_3-16', 'st_16', 'rt_16-11', 'st_11'],
+    },
+};
+
 function loadFromList()
 {
     var list = [Stations[1], Stations[2], Stations[3], Stations[4], Stations[5], Stations[6], Stations[7], Stations[8], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[17], Stations[18], Stations[19], Stations[20], Stations[11], Stations[22], Stations[23]];
