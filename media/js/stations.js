@@ -45,7 +45,7 @@ var Assets = {
     '3': [Stations[0], Stations[6], Stations[7], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[23]],
     '4': [Stations[0], Stations[6], Stations[7], Stations[8], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[23]],
     '5': [Stations[0], Stations[7], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[23]],
-    '6': [Stations[0], Stations[101], Stations[2], Stations[4], Stations[7], Stations[8], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[17], Stations[24], Stations[25], Stations[23]],
+    '6': [Stations[0], Stations[101], Stations[2], Stations[4], Stations[7], Stations[8], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[18], Stations[24], Stations[25], Stations[23]],
     '7': [Stations[0], Stations[1], Stations[2], Stations[3], Stations[4], Stations[5], Stations[6], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[18], Stations[23]],
     '8': [Stations[0], Stations[2], Stations[4], Stations[6], Stations[23]],
     '9': [Stations[0], Stations[101], Stations[1], Stations[2], Stations[3], Stations[4], Stations[5], Stations[6], Stations[7], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[17], Stations[24], Stations[25], Stations[23]],
@@ -220,6 +220,7 @@ var Select = {
                         break;
                 }
             }
+            if (parseInt(stationID) === 101) this.to = 24;
             this.mode.from = true;
             this.mode.to = false;
             showRoute(this.from, this.to);
