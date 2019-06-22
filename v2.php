@@ -1,3 +1,8 @@
+<?php
+require_once 'config.php';
+$config = new Config();
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -39,11 +44,11 @@
         </a>
     </div>
     <div class="w-100 h-100" id="l-scheme">
-        <object type="image/svg+xml" id="scheme" data="media/scheme/scheme_v2.svg?<?php echo mt_rand(0,999999999999999);?>">Не удаётся загрузить схему</object>
+        <object type="image/svg+xml" id="scheme" data="media/scheme/scheme_v2.svg?<?php echo $config->version();?>">Не удаётся загрузить схему</object>
     </div>
 </div>
 <script src="media/js/jquery-3.4.1.min.js"></script>
-<script src="media/js/stations_v2.js?<?php echo mt_rand(0,999999999999999);?>"></script>
+<script src="media/js/stations_v2.js?<?php echo $config->version();?>"></script>
 <script src="media/js/popper.min.js"></script>
 <script src="media/js/bootstrap.min.js"></script>
 <script src="media/js/bootstrap-select.min.js"></script>
