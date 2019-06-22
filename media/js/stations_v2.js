@@ -5,6 +5,64 @@ function Station(id, title) {
     return option;
 }
 
+var Stations = {
+    0: new Station(0, 'Куда'),
+    1: new Station(1, 'Москва (Белорусский вокзал)'),
+    2: new Station(2, 'Москва (Киевский вокзал)'),
+    3: new Station(3, 'Ст. Голицыно'),
+    4: new Station(4, 'Ст. Селятино'),
+    5: new Station(5, 'Ст. Кубинка'),
+    6: new Station(6, 'Парадная Площадка'),
+    7: new Station(7, 'Аэродром Кубинка'),
+    8: new Station(8, 'Патриот Экспо - проезд на демопрограмму'),
+    9: new Station(9, 'Музейный комплекс / площадка №1 / ВПК'),
+    10: new Station(10, 'Броневагон'),
+    11: new Station(11, 'Центр военно-тактических игр'),
+    12: new Station(12, 'Юнармия / Партизанская деревня / Конно-спортивный комплекс'),
+    13: new Station(13, 'Стрелковый клуб Калашников'),
+    14: new Station(14, 'Многофункциональный огневой центр'),
+    15: new Station(15, 'Входная группа B'),
+    16: new Station(16, 'Входная группа C'),
+    17: new Station(17, 'Входная группа D'),
+    18: new Station(18, 'Парковка сектор O'),
+    19: new Station(19, 'Парковка сектор A'),
+    20: new Station(20, 'Парковка сектор K'),
+    21: new Station(21, 'Парковка сектор F'),
+    22: new Station(22, 'Парковка сектор C'),
+    23: new Station(23, 'Полигон Алабино'),
+    24: new Station(24, 'Парковка сектор J'),
+    25: new Station(25, 'Парковка сектор E'),
+    100: new Station(100, 'Патриот Экспо'),
+    101: new Station(101, 'Парковка'),
+};
+
+var Assets = {
+    '0': [Stations[0]],
+    '1': [Stations[0], Stations[100], Stations[7], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[23]],
+    '2': [Stations[0], Stations[100], Stations[7], Stations[8], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[23]],
+    '3': [Stations[0], Stations[6], Stations[7], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[23]],
+    '4': [Stations[0], Stations[6], Stations[7], Stations[8], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[23]],
+    '5': [Stations[0], Stations[7], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[23]],
+    '6': [Stations[0], Stations[101], Stations[2], Stations[4], Stations[7], Stations[8], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[18], Stations[24], Stations[25], Stations[23]],
+    '7': [Stations[0], Stations[1], Stations[2], Stations[3], Stations[4], Stations[5], Stations[6], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[18], Stations[23]],
+    '8': [Stations[0], Stations[2], Stations[4], Stations[6], Stations[23]],
+    '9': [Stations[0], Stations[101], Stations[1], Stations[2], Stations[3], Stations[4], Stations[5], Stations[6], Stations[7], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[17], Stations[24], Stations[25], Stations[23]],
+    '10': [Stations[0], Stations[101], Stations[1], Stations[2], Stations[3], Stations[4], Stations[5], Stations[6], Stations[7], Stations[9], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[17], Stations[24], Stations[25], Stations[23]],
+    '11': [Stations[0], Stations[101], Stations[1], Stations[2], Stations[3], Stations[4], Stations[5], Stations[6], Stations[7], Stations[9], Stations[10], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[17], Stations[24], Stations[25], Stations[23]],
+    '12': [Stations[0], Stations[101], Stations[1], Stations[2], Stations[3], Stations[4], Stations[5], Stations[6], Stations[7], Stations[9], Stations[10], Stations[11], Stations[13], Stations[14], Stations[15], Stations[16], Stations[17], Stations[24], Stations[25], Stations[23]],
+    '13': [Stations[0], Stations[101], Stations[1], Stations[2], Stations[3], Stations[4], Stations[5], Stations[6], Stations[7], Stations[9], Stations[10], Stations[11], Stations[12], Stations[14], Stations[15], Stations[16], Stations[17], Stations[24], Stations[25], Stations[23]],
+    '14': [Stations[0], Stations[101], Stations[1], Stations[2], Stations[3], Stations[4], Stations[5], Stations[6], Stations[7], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[15], Stations[16], Stations[17], Stations[24], Stations[25], Stations[23]],
+    '15': [Stations[0], Stations[101], Stations[1], Stations[3], Stations[5], Stations[7], Stations[9], Stations[18], Stations[24], Stations[25]],
+    '16': [Stations[0], Stations[101], Stations[1], Stations[3], Stations[5], Stations[7], Stations[9], Stations[18], Stations[24], Stations[25]],
+    '17': [Stations[0], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14]],
+    '18': [Stations[0], Stations[1], Stations[3], Stations[5], Stations[7]],
+    '19': [Stations[0], Stations[6], Stations[7], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[17], Stations[23]],
+    '20': [Stations[0], Stations[6], Stations[7], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[17], Stations[23]],
+    '21': [Stations[0], Stations[6], Stations[7], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[17], Stations[23]],
+    '22': [Stations[0], Stations[6], Stations[7], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[17], Stations[23]],
+    '23': [Stations[0], Stations[101], Stations[1], Stations[2], Stations[3], Stations[4], Stations[5], Stations[6], Stations[7], Stations[8], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[18], Stations[24], Stations[25], Stations[23]],
+};
+
 var Scheme = {
     get: function () {
         var svg = document.querySelector("#scheme");
@@ -14,13 +72,27 @@ var Scheme = {
         var s = this.get();
         var stations = s.querySelectorAll("g[id^='station_']");
         var rt = s.querySelectorAll("[id^='rt']");
-        var rw = s.querySelectorAll("path[id^='rw_']");
-        var st = s.querySelectorAll("g[id^='st_']");
-        var crs = s.querySelectorAll("g[id^='crs_']");
-        $(stations, rw, st, crs).animate({
+        var rw = s.querySelectorAll("[id^='rw_']");
+        var st = s.querySelectorAll("[id^='st_']");
+        var crs = s.querySelectorAll("[id^='crs_']");
+        var ns = s.querySelectorAll("[id^='not_show']");
+        var info = s.querySelectorAll("[id^='info']");
+        $(stations, st).animate({
             opacity: Scheme.Off.opc
         });
         $(rt).animate({
+            opacity: Scheme.Off.opc
+        });
+        $(crs).animate({
+            opacity: Scheme.Off.opc
+        });
+        $(rw).animate({
+            opacity: Scheme.Off.opc
+        });
+        $(ns).animate({
+            opacity: Scheme.Off.opc
+        });
+        $(info).animate({
             opacity: Scheme.Off.opc
         });
         if (!Select.mode.from) {
@@ -65,64 +137,6 @@ var Scheme = {
     },
 };
 
-var Stations = {
-    0: new Station(0, 'Куда'),
-    1: new Station(1, 'Москва (Белорусский вокзал)'),
-    2: new Station(2, 'Москва (Киевский вокзал)'),
-    3: new Station(3, 'Ст. Голицыно'),
-    4: new Station(4, 'Ст. Селятино'),
-    5: new Station(5, 'Ст. Кубинка'),
-    6: new Station(6, 'Парадная Площадка'),
-    7: new Station(7, 'Аэродром Кубинка'),
-    8: new Station(8, 'Входная группа D (№3)'),
-    9: new Station(9, 'Музейный комплекс / площадка №1 / ВПК'),
-    10: new Station(10, 'Броневагон'),
-    11: new Station(11, 'Центр военно-тактических игр'),
-    12: new Station(12, 'Юнармия / Партизанская деревня / Конно-спортивный комплекс'),
-    13: new Station(13, 'Стрелковый клуб Калашников'),
-    14: new Station(14, 'Многофункциональный огневой центр'),
-    15: new Station(15, 'Входная группа B'),
-    16: new Station(16, 'Входная группа C'),
-    17: new Station(17, 'Входная группа D (№2)'),
-    18: new Station(18, 'Парковка сектор O'),
-    19: new Station(19, 'Парковка сектор A'),
-    20: new Station(20, 'Парковка сектор K'),
-    21: new Station(21, 'Парковка сектор F'),
-    22: new Station(22, 'Парковка сектор C'),
-    23: new Station(23, 'Полигон Алабино'),
-    24: new Station(24, 'Парковка сектор J'),
-    25: new Station(25, 'Парковка сектор E'),
-    100: new Station(100, 'Патриот Экспо'),
-    101: new Station(101, 'Парковка'),
-};
-
-var Assets = {
-    '0': [Stations[0]],
-    '1': [Stations[0], Stations[100], Stations[7], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[23]],
-    '2': [Stations[0], Stations[100], Stations[7], Stations[8], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[23]],
-    '3': [Stations[0], Stations[6], Stations[7], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[23]],
-    '4': [Stations[0], Stations[6], Stations[7], Stations[8], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[23]],
-    '5': [Stations[0], Stations[7], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[23]],
-    '6': [Stations[0], Stations[101], Stations[2], Stations[4], Stations[7], Stations[8], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[18], Stations[24], Stations[25], Stations[23]],
-    '7': [Stations[0], Stations[1], Stations[2], Stations[3], Stations[4], Stations[5], Stations[6], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[18], Stations[23]],
-    '8': [Stations[0], Stations[2], Stations[4], Stations[6], Stations[23]],
-    '9': [Stations[0], Stations[101], Stations[1], Stations[2], Stations[3], Stations[4], Stations[5], Stations[6], Stations[7], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[17], Stations[24], Stations[25], Stations[23]],
-    '10': [Stations[0], Stations[101], Stations[1], Stations[2], Stations[3], Stations[4], Stations[5], Stations[6], Stations[7], Stations[9], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[17], Stations[24], Stations[25], Stations[23]],
-    '11': [Stations[0], Stations[101], Stations[1], Stations[2], Stations[3], Stations[4], Stations[5], Stations[6], Stations[7], Stations[9], Stations[10], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[17], Stations[24], Stations[25], Stations[23]],
-    '12': [Stations[0], Stations[101], Stations[1], Stations[2], Stations[3], Stations[4], Stations[5], Stations[6], Stations[7], Stations[9], Stations[10], Stations[11], Stations[13], Stations[14], Stations[15], Stations[16], Stations[17], Stations[24], Stations[25], Stations[23]],
-    '13': [Stations[0], Stations[101], Stations[1], Stations[2], Stations[3], Stations[4], Stations[5], Stations[6], Stations[7], Stations[9], Stations[10], Stations[11], Stations[12], Stations[14], Stations[15], Stations[16], Stations[17], Stations[24], Stations[25], Stations[23]],
-    '14': [Stations[0], Stations[101], Stations[1], Stations[2], Stations[3], Stations[4], Stations[5], Stations[6], Stations[7], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[15], Stations[16], Stations[17], Stations[24], Stations[25], Stations[23]],
-    '15': [Stations[0], Stations[101], Stations[1], Stations[3], Stations[5], Stations[7], Stations[9], Stations[18], Stations[24], Stations[25]],
-    '16': [Stations[0], Stations[101], Stations[1], Stations[3], Stations[5], Stations[7], Stations[9], Stations[18], Stations[24], Stations[25]],
-    '17': [Stations[0], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14]],
-    '18': [Stations[0], Stations[1], Stations[3], Stations[5], Stations[7]],
-    '19': [Stations[0], Stations[6], Stations[7], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[17], Stations[23]],
-    '20': [Stations[0], Stations[6], Stations[7], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[17], Stations[23]],
-    '21': [Stations[0], Stations[6], Stations[7], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[17], Stations[23]],
-    '22': [Stations[0], Stations[6], Stations[7], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[17], Stations[23]],
-    '23': [Stations[0], Stations[101], Stations[1], Stations[2], Stations[3], Stations[4], Stations[5], Stations[6], Stations[7], Stations[8], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[18], Stations[24], Stations[25], Stations[23]],
-};
-
 var Route = {
     1: {7: 1, 9: 2, 10: 3, 11: 4, 12: 5, 13: 6, 14: 7, 15: 8, 16: 9, 23: 10},
     2: {7: 11, 8: 12, 9: 13, 10: 14, 11: 15, 12: 16, 13: 17, 14: 18, 23: 19},
@@ -157,14 +171,40 @@ var Route2 = {
         11: ['st_1', 'rt_1-3', 'st_3', 'rt_3-16', 'st_16', 'rt_16-11', 'st_11'],
     },
     3: {
-        15: ['st_3', 'st_3_4', 'rt_4_3-16', 'st_16', 'rt_4_16-15', 'st_15', 'st_15_4'],
-        7: ['st_3', 'rw_3-5', 'st_5', 'crs_rw-5a', 'st_5_5a', 'rt_5a_5-7', 'st_7', 'st_7_5a'],
-        16: ['st_3', 'st_3_4', 'rt_4_3-16', 'st_16', 'st_16_4'],
-        9: ['st_3', 'st_3_4', 'rt_4_3-16', 'st_16', 'st_16_4', 'st_16_1', 'rt_1_16-15', 'st_15_1', 'rt_1_15-19', 'st_19_1', 'rt_1_19-25', 'st_25_1', 'rt_1_25-24', 'st_24', 'rt_1_24-20', 'rt_1_20-21', 'rt_1_21-22', 'rt_1_22-26', 'rt_1_26-9', 'st_9', 'st_9-1'],
-        23: ['st_3', 'st_3_4', 'rt_4_3-16', 'st_16', 'st_16_4', 'st_16_23', 'crs_16-8', 'st_8', 'st_8_3', 'rt_3_8-23', 'st_23'],
-        6: ['st_3', 'st_3_4', 'rt_4_3-16', 'st_16', 'st_16_4', 'crs_16-8', 'st_8', 'rt_3_8-23', 'st_23', 'rt_3_23-6', 'st_6_3'],
-
-    }
+        15: ['st_3', 'st_3_4', 'rt_4_3-16', 'st_16', 'rt_4_16-15', 'st_15_4'],
+        7: ['st_3', 'rw_3-5', 'crs_rw-5a', 'st_5_5a', 'rt_5a_5-7', 'st_7_5a'],
+        16: ['st_3', 'st_3_4', 'rt_4_3-16', 'st_16_4'],
+        9: ['st_3', 'st_3_4', 'rt_4_3-16', 'st_16_4', 'st_16_1', 'rt_1_16-15', 'st_15_1', 'rt_1_15-19', 'st_19_1', 'rt_1_19-25', 'st_25_1', 'rt_1_25-24', 'st_24', 'rt_1_24-20', 'rt_1_20-21', 'rt_1_21-22', 'rt_1_22-26', 'rt_1_26-9', 'st_9-1'],
+        10: ['st_3', 'st_3_4', 'rt_4_3-16', 'st_16_4', 'st_16_1', 'rt_1_16-15', 'st_15_1', 'rt_1_15-19', 'st_19_1', 'rt_1_19-25', 'st_25_1', 'rt_1_25-24', 'st_24', 'rt_1_24-20', 'rt_1_20-21', 'rt_1_21-22', 'rt_1_22-26', 'rt_1_26-9', 'st_9-1'],
+        23: ['st_3', 'st_3_4', 'rt_4_3-16', 'st_16_4', 'st_16_23', 'crs_16-8', 'st_8_3', 'rt_3_8-23', 'st_23'],
+        6: ['st_3', 'st_3_4', 'rt_4_3-16', 'st_16_4', 'st_16_23', 'crs_16-8', 'station_8', 'rt_3_8-23', 'station_23', 'rt_3_23-6', 'st_6_3'],
+    },
+    16: { //Входная C. Написаны.
+        3: ['info', 'st_16_1', 'ico_16_1', 'rt_1_16-15', 'st_15_1', 'rt_1_15-19', 'st_19_1', 'rt_1_19_25', 'st_25_1', 'rt_1_25-24', 'st_24_1', 'ico_24_1', 'crs_24-18_4', 'ico_18_4', 'st_18_4', 'rt_4_18-3', 'ico_3_4'],
+        1: ['st_16_1', 'ico_16_1', 'rt_1_16-15', 'st_15_1', 'rt_1_15-19', 'st_19_1', 'rt_1_19_25', 'st_25_1', 'rt_1_25-24', 'st_24_1', 'ico_24_1', 'crs_24-18_4', 'ico_18_4', 'st_18_4', 'rt_4_18-3', 'ico_3_4', 'ico_3_rw', 'st_3', 'rt_1-3', 'st_1'],
+        5: ['info', 'st_16_1', 'ico_16_1', 'rt_1_16-15', 'st_15_1', 'rt_1_15-19', 'st_19_1', 'rt_1_19_25', 'st_25_1', 'rt_1_25-24', 'st_24_1', 'ico_24_1', 'crs_24-18_5', 'ico_18_5', 'st_18_5', 'rt_5_18-5', 'ico_5_5'],
+        7: ['st_16_1', 'ico_16_1', 'rt_1_16-15', 'st_15_1', 'rt_1_15-19', 'st_19_1', 'rt_1_19_25', 'st_25_1', 'rt_1_25-24', 'st_24_1', 'ico_24_1', 'crs_24-18_5', 'ico_18_5', 'st_18_5', 'rt_5_18-5', 'ico_5_5', 'ico_5_5a', 'rt_5a_5-7', 'st_7', 'ico_7_5a'],
+        9: ['st_16_1', 'ico_16_1', 'rt_1_16-15', 'st_15_1', 'rt_1_15-19', 'st_19_1', 'rt_1_19_25', 'st_25_1', 'rt_1_25-24', 'st_24_1', 'rt_1_24-20', 'st_20_1', 'rt_1_20-21', 'st_21_1', 'rt_1_21-22', 'st_22_1', 'rt_1_22-26', 'st_26_1', 'rt_1_26-9', 'st_9_1'],
+        18: ['st_16_1', 'ico_16_1', 'rt_1_16-15', 'st_15_1', 'rt_1_15-19', 'st_19_1', 'rt_1_19_25', 'st_25_1', 'rt_1_25-24', 'st_24_1', 'crs_24-18_4'],
+        24: ['st_16_1', 'ico_16_1', 'rt_1_16-15', 'st_15_1', 'rt_1_15-19', 'st_19_1', 'rt_1_19_25', 'st_25_1', 'rt_1_25-24'],
+        25: ['st_16_1', 'ico_16_1', 'rt_1_16-15', 'st_15_1', 'rt_1_15-19', 'st_19_1', 'rt_1_19_25'],
+    },
+    15: { //Входная B. Написаны.
+        3: ['info', 'st_15_1', 'rt_1_15-19', 'st_19_1', 'rt_1_19_25', 'st_25_1', 'rt_1_25-24', 'st_24_1', 'ico_24_1', 'crs_24-18_4', 'ico_18_4', 'st_18_4', 'rt_4_18-3', 'ico_3_4'],
+        1: ['st_16_1', 'st_15_1', 'rt_1_15-19', 'st_19_1', 'rt_1_19_25', 'st_25_1', 'rt_1_25-24', 'st_24_1', 'ico_24_1', 'crs_24-18_4', 'ico_18_4', 'st_18_4', 'rt_4_18-3', 'ico_3_4', 'ico_3_rw', 'st_3', 'rt_1-3', 'st_1'],
+        5: ['info', 'st_15_1', 'rt_1_15-19', 'st_19_1', 'rt_1_19_25', 'st_25_1', 'rt_1_25-24', 'st_24_1', 'ico_24_1', 'crs_24-18_5', 'ico_18_5', 'st_18_5', 'rt_5_18-5', 'ico_5_5'],
+        7: ['st_16_1', 'st_15_1', 'rt_1_15-19', 'st_19_1', 'rt_1_19_25', 'st_25_1', 'rt_1_25-24', 'st_24_1', 'ico_24_1', 'crs_24-18_5', 'ico_18_5', 'st_18_5', 'rt_5_18-5', 'ico_5_5', 'ico_5_5a', 'rt_5a_5-7', 'st_7', 'ico_7_5a'],
+        9: ['st_16_1', 'st_15_1', 'rt_1_15-19', 'st_19_1', 'rt_1_19_25', 'st_25_1', 'rt_1_25-24', 'st_24_1', 'rt_1_24-20', 'st_20_1', 'rt_1_20-21', 'st_21_1', 'rt_1_21-22', 'st_22_1', 'rt_1_22-26', 'st_26_1', 'rt_1_26-9', 'st_9_1'],
+        18: ['st_16_1', 'st_15_1', 'rt_1_15-19', 'st_19_1', 'rt_1_19_25', 'st_25_1', 'rt_1_25-24', 'st_24_1', 'crs_24-18_4'],
+        24: ['st_16_1', 'st_15_1', 'rt_1_15-19', 'st_19_1', 'rt_1_19_25', 'st_25_1', 'rt_1_25-24'],
+        25: ['st_16_1', 'st_15_1', 'rt_1_15-19', 'st_19_1', 'rt_1_19_25'],
+    },
+    18: { //Парковка O. Написаны.
+        1: ['rt_4_18-3', 'ico_3_4', 'ico_3_rw', 'st_3', 'rt_1-3'],
+        3: ['rt_4_18-3'],
+        5: ['st_18_5', 'rt_5_18-5', 'ico_5_5'],
+        7: ['st_18_5', 'rt_5_18-5', 'ico_5_5', 'ico_5_5a', 'crs_5-5a', 'rt_5a_5-7'],
+    },
 };
 
 function loadFromList()
