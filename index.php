@@ -41,6 +41,25 @@
     <div class="w-100 h-100" id="l-scheme">
         <object type="image/svg+xml" id="scheme" data="media/scheme/scheme.svg">Не удаётся загрузить схему</object>
     </div>
+    <div class="text-center" style="font-size: 0.4em;">Пользуясь данной интерактивной схемой, вы соглашаетесь с <a href="#" data-toggle="modal" data-target="#legal">условиями использования</a>.</div>
+    <div class="modal fade" id="legal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title" id="exampleModalLongTitle">Условия</h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Понятно">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    При поиске маршрута между остановками собирается следующая информация: IP-адрес, время запроса, пункт отправления, пункт прибытия и текущие координаты устройства, полученные от браузера. Информация обезличена, не является персональными данными, и используется только в целях прогноза загруженности остановочных пунктов и маршрутов.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Понятно</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <script src="media/js/jquery-3.4.1.min.js"></script>
 <script src="media/js/stations.min.js"></script>

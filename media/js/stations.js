@@ -1,3 +1,4 @@
+'use strict';
 var Stations = {
     0: new Station(0, 'Куда'),
     1: new Station(1, 'Москва (Белорусский вокзал)'),
@@ -503,16 +504,15 @@ var Geo = {
         console.log(code);
     },
     send: function (latitude, longitude) {
-        $.ajax({
-            url: 'stat.php',
-            type: 'POST',
-            data: {
-                latitude: latitude,
-                longitude: longitude,
-                from: Select.from,
-                to: Select.to
-            }
-        });
+        fetch('stat.php?latitude=' + encodeURI(latitude) + '&longitude=' + encodeURI(longitude) + '&from=' + encodeURI(Select.from) + '&to=' + encodeURI(Select.to))
+
+            .then(response => response.json())
+
+            .then(data => {
+
+            })
+
+            .catch(error => console.error(error));
     }
 };
 
