@@ -441,6 +441,8 @@ var Scheme = {
             opacity: Scheme.Off.opc
         });
         if (!Select.mode.from) {
+            if (Select.from === '100') Select.from = '15';
+            if (Select.from === '101') Select.from = '19';
             var list = Assets[Select.from];
             for (var i = 1; i <= list.length; i++)
             {
@@ -620,6 +622,8 @@ var Select = {
         if (stationID === 26) stationID = 19;
         if (this.mode.from === true) {
             if (this.need_reset === true) return;
+            if (stationID === 100) stationID = 15;
+            if (stationID === 101) stationID = 19;
             $("#form_from").val(stationID);
             this.from = stationID;
             loadToList(stationID);
