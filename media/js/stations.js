@@ -542,7 +542,7 @@ var Route = {
 
 function loadFromList()
 {
-    var list = [Stations[1], Stations[2], Stations[3], Stations[4], Stations[5], Stations[6], Stations[7], Stations[8], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[17], Stations[18], Stations[19], Stations[20], Stations[11], Stations[22], Stations[23], Stations[26]];
+    var list = [Stations[1], Stations[2], Stations[3], Stations[4], Stations[5], Stations[6], Stations[7], Stations[8], Stations[9], Stations[10], Stations[11], Stations[12], Stations[13], Stations[14], Stations[15], Stations[16], Stations[17], Stations[18], Stations[19], Stations[20], Stations[11], Stations[22], Stations[23], Stations[26], Stations[100], Stations[101]];
     for(var i = 0; i < list.length; i++)
     {
         document.querySelector("#form_from").appendChild(list[i]);
@@ -599,6 +599,7 @@ function showRoute(from, to) {
 
 function loadToList(val) {
     $("#form_to > option").remove();
+    if (val === '100') val = '15';
     var s = Assets[val];
     for(var i = 0; i < s.length; i++)
     {
