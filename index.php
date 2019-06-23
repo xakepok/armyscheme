@@ -3,10 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta
-            name='viewport'
-            content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
-    />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <link rel="stylesheet" href="media/css/bootstrap.min.css">
     <link rel="stylesheet" href="media/css/bootstrap-select.min.css">
     <link rel="icon" href="media/images/favicon.png" type="image/x-icon"/>
@@ -15,7 +12,7 @@
 </head>
 <body>
 <div class="container">
-    <div class="text-center"><h6>Схема движения транспорта Армия-2019</h6></div>
+    <div class="text-center"><h6>Схема движения транспорта на международном военно-техническом форуме "Армия-2019"</h6></div>
     <div id="l-form">
         <div class="form-group">
             <div class="form-group">
@@ -30,7 +27,7 @@
             </div>
         </div>
     </div>
-    <div id="l-route" style="display: none;">
+    <div id="l-route" style="display: none; width: 100%;">
         <div class="text-center">
             <h4>Подробный маршрут</h4>
             <object type="image/svg+xml" id="route">Маршрут ещё не прорисован</object>
@@ -46,8 +43,7 @@
     </div>
 </div>
 <script src="media/js/jquery-3.4.1.min.js"></script>
-<script src="media/js/stations.js?v1"></script>
-<script src="media/js/popper.min.js"></script>
+<script src="media/js/stations.min.js"></script>
 <script src="media/js/bootstrap.min.js"></script>
 <script src="media/js/bootstrap-select.min.js"></script>
 </body>
