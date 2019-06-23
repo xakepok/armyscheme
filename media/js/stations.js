@@ -402,7 +402,6 @@ var Route2 = {
     }
 };
 
-
 function Station(id, title) {
     var option = document.createElement('option');
     option.value = id;
@@ -471,6 +470,7 @@ var Scheme = {
                 opacity: Scheme.On.opc
             }, Scheme.On.lat);
             showRoute(Select.from, Select.to);
+            Geo.get();
             $(stations).css('cursor', 'default');
         }
     },
@@ -482,6 +482,36 @@ var Scheme = {
         opc: 0.1,
         lat: 300
     },
+};
+
+var Geo = {
+    state: false,
+    get: function () {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(this.isOk, this.isError);
+        }
+    },
+    isOk: function(position) {
+        Geo.state = true;
+        if (Select.from === 0 || Select.to === 0) return;
+        Geo.send(position.coords.latitude, position.coords.longitude);
+    },
+    isError: function (code) {
+        Geo.state = false;
+        console.log(code);
+    },
+    send: function (latitude, longitude) {
+        $.ajax({
+            url: 'stat.php',
+            type: 'POST',
+            data: {
+                latitude: latitude,
+                longitude: longitude,
+                from: Select.from,
+                to: Select.to
+            }
+        });
+    }
 };
 
 var Route = {
@@ -535,6 +565,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var svg = document.querySelector("#scheme");
     svg.addEventListener("load",function(){
         var s = Scheme.get();
+        Geo.get();
         var stations = s.querySelectorAll("g[id^='station_']");
         $(stations).css('cursor', 'pointer');
         $(stations).click(function () {
