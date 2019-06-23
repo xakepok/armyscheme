@@ -17,7 +17,7 @@ $config = new Config();
 </head>
 <body>
 <div class="container">
-    <div class="text-center"><h6>Схема движения транспорта Армия-2019</h6></div>
+    <div class="text-center"><h6>Схема движения транспорта на международном военно-техническом форуме "Армия-2019"</h6></div>
     <div id="l-form">
         <div class="form-group">
             <div class="form-group">
