@@ -32,7 +32,7 @@ $config = new Config();
             </div>
         </div>
     </div>
-    <div id="l-route" style="display: none;">
+    <div id="l-route" style="display: none; width: 100%;">
         <div class="text-center">
             <h4>Подробный маршрут</h4>
             <object type="image/svg+xml" id="route">Маршрут ещё не прорисован</object>
