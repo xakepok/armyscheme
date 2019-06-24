@@ -94,7 +94,7 @@ var Stops = {
                 break;
             }
         }
-        return (id >= 0) ? Stations.get(id) : 'Далеко';
+        return (id >= 0) ? Stations.get(id) + ' ( ' + latitude + ',' + longitude + ')' : 'Далеко' + ' ( ' + latitude + ',' + longitude + ')';
     },
 };
 
